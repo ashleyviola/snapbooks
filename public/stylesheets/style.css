@@ -188,3 +188,23 @@ input{
 #logout-img-container{
     width: 600px;
 }
+
+/* dashboard */
+
+#dashboard-container{
+    padding: 25px 75px;
+    background-color: white;
+}
+#dashboard-list-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#project-list{
+    list-style-type: circle;
+    color: #6ac7b6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+}
