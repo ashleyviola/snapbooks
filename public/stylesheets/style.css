@@ -3,7 +3,6 @@ body{
     /*background-image: url('../assets/images/paper-background.jpg');*/
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
 }
@@ -16,24 +15,24 @@ h2 {
     font-family: 'Bree Serif', serif;
 }
 h1 {
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 700;
     color: white
 }
 h2 {
-    font-size: 26px;
+    font-size: 30px;
     color: white;
     padding: 0 0 10px 0;
     border-bottom: 4px solid #e16751;
     width: fit-content;
 }
 h3 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 400;
     color: white;
 }
 h4 {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 300;
     color: white;
     padding: 0px 10px;
@@ -46,7 +45,7 @@ button{
     color: white;
     background-color: #edb950;
     border: #edb950 2px solid;
-    padding: 10px;
+    padding: 6px;
 }
 
 button:hover{
@@ -54,7 +53,7 @@ button:hover{
     color: #edb950;
     font-weight: 600;
     border: #edb950 2px solid;
-    padding: 10px;
+    padding: 6px;
 }
 #secondary-subhead{
     color: #6ac7b6;
@@ -66,6 +65,11 @@ label{
 #secondary-label{
     color: #6ac7b6;
 }
+input{
+    width: 100%;
+    padding: 10px;
+    border: #edb950 2px solid;
+}
 /* NAV & FOOTER */
 #nav-link:hover{
     color: #e16751;
@@ -74,6 +78,11 @@ label{
 #footer-container{
     display: flex;
     justify-content: flex-end;
+    position:relative;
+    align-items: center;
+    bottom:0;
+    width:100%;
+    height:60px;
 }
 
 /* HOMEPAGE */
@@ -139,16 +148,43 @@ label{
 #demo-img{
     width: 500px;
 }
-
+/* LOGIN PAGE */
 #login-container{
-    padding: 75px;
+    padding: 25px 0 0 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    margin: 0 80px;
 }
 #login-form{
     background: #6ac7b6;
+    padding: 25px 50px 50px;
+    width: 50%;
 }
 #create-account-form{
     background: white;
+    padding: 25px 50px 50px;
+    width: 50%;
+}
+#login-btn{
+    margin: 15px 0 0 0;
+}
+#create-btn{
+    margin: 15px 0 0 0;
+}
+/* LOGOUT PAGE */
+#logout-container{
+    padding: 25px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75vh;
+    margin: 0 80px;
+}
+#logout-copy-container{
+    padding: 10px 80px;
+    width: 600px;
+}
+#logout-img-container{
+    width: 600px;
 }

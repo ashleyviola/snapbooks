@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SnapBooks</title>
-        <link rel="stylesheet" href="../public/stylesheets/style.css">
+        <link rel="stylesheet" href="../../public/stylesheets/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
@@ -16,12 +16,16 @@
                 <a href="/">SnapBooks</a>
             </h1>
             <nav id="nav-container">
+                {{#if loggedIn}}
+                
+                {{else}}
                 <h4>
                     <a id="nav-link login" href="/login">login.</a>
                 </h4>
                 <h4>
                     <a id="nav-link login" href="/login">get started.</a>
                 </h4>
+                {{/if}}
             </nav>
         </header>
         <main>
