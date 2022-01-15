@@ -188,15 +188,14 @@ input{
 #logout-img-container{
     width: 600px;
 }
-
-/* dashboard */
-
-#dashboard-container{
+/* CONTENT CONTAINER */
+#content-container{
     padding: 25px 75px;
     background-color: white;
     min-height: 75vh;
     height: auto;
 }
+/* dashboard */
 #dashboard-list-container{
     display: flex;
     justify-content: space-between;
@@ -212,7 +211,9 @@ input{
 }
 #project-list li{
     padding: 5px 0;
+    list-style-type: none;
 }
+
 #project-link{
     color: #6ac7b6;
     font-weight: 300;
@@ -224,3 +225,36 @@ input{
     padding: 4px;
     border: #e16751 2px solid;
 }
+
+/* CREATE PROJECT */
+#create-project-form{
+    width: 60%;
+}
+.select_categories{
+    font-size: 13px;
+    padding: 10px 8px 10px 14px;
+    background: #fff;
+    border: 2px solid #edb950;
+    overflow: hidden;
+  }
+  
+  .select_categories .select{
+    background:url('../assets/images/chevron-down-solid.svg') no-repeat;
+    background-position: 100%;
+  }
+
+  .select_categories .select select{
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 105%;
+    position: relative;
+    z-index: 10;
+    font-size: 1em;
+  }
+
+  #create-project-form button{
+      margin: 20px 0;
+  }
