@@ -10,6 +10,7 @@ User.hasMany(Client, {
 })
 
 // Client belongs to User
+// belongsTo is used when the foreign key association exists on the source model (in this case Client)
 Client.belongsTo(User, {
   foreignKey: 'user_id'
 })
