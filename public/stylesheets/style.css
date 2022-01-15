@@ -5,16 +5,16 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
 }
 
-h1, h3, h4 {
+/* UNIVERSAL TEXT & FEATURES */
+h1, h3, h4, button, label {
     font-family: 'Poppins', sans-serif;
 }
-
 h2 {
     font-family: 'Bree Serif', serif;
 }
-
 h1 {
     font-size: 30px;
     font-weight: 700;
@@ -34,44 +34,121 @@ h3 {
 }
 h4 {
     font-size: 16px;
-    font-weight: 400px;
+    font-weight: 300;
     color: white;
     padding: 0px 10px;
 }
-
 a{
     text-decoration: none;
     color: white;
 }
+button{
+    color: white;
+    background-color: #edb950;
+    border: #edb950 2px solid;
+    padding: 10px;
+}
 
+button:hover{
+    background: none;
+    color: #edb950;
+    font-weight: 600;
+    border: #edb950 2px solid;
+    padding: 10px;
+}
+#secondary-subhead{
+    color: #6ac7b6;
+}
+label{
+    font-size: 22px;
+    color: white;
+}
+#secondary-label{
+    color: #6ac7b6;
+}
+/* NAV & FOOTER */
 #nav-link:hover{
     color: #e16751;
     border-top: 2px solid;
 }
+#footer-container{
+    display: flex;
+    justify-content: flex-end;
+}
 
+/* HOMEPAGE */
 #header-container {
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
 }
-
 #nav-container {
     display: flex;
     justify-content: flex-end;
 }
-
 #banner-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 75px 0;
 }
-
 #banner-copy-container {
     padding: 10px 80px;
-    flex-grow: 1;
 }
 #banner-img {
     width: 600px;
     padding: 0 80px 0 0;
     flex-grow: 2;
+}
+#use-container{
+    padding: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+#use-list{
+    list-style: none;
+    color: #6ac7b6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    column-count: 3;
+    column-gap: 75px;
+
+}
+#use-copy-container{
+    color: #6ac7b6;
+    padding: 10px 80px;
+    width: 600px;
+
+}
+#use-icon{
+    width: 100px;
+}
+#use-list-item{
+    margin: 0 0 40px 0;
+}
+#demo-container{
+    padding: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6ac7b6;    
+}
+#demo-img{
+    width: 500px;
+}
+
+#login-container{
+    padding: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#login-form{
+    background: #6ac7b6;
+}
+#create-account-form{
+    background: white;
 }
