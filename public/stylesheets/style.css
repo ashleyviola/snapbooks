@@ -8,7 +8,7 @@ body{
 }
 
 /* UNIVERSAL TEXT & FEATURES */
-h1, h3, h4, button, label {
+h1, h3, h4, p, button, label {
     font-family: 'Poppins', sans-serif;
 }
 h2 {
@@ -36,6 +36,10 @@ h4 {
     font-weight: 300;
     color: white;
     padding: 0px 10px;
+}
+p{
+    font-size: 14px;
+    color: #6ac7b6;
 }
 a{
     text-decoration: none;
@@ -189,7 +193,7 @@ input{
     width: 600px;
 }
 /* CONTENT CONTAINER */
-#content-container{
+.content-container{
     padding: 25px 75px;
     background-color: white;
     min-height: 75vh;
@@ -226,8 +230,8 @@ input{
     border: #e16751 2px solid;
 }
 
-/* CREATE PROJECT */
-#create-project-form{
+/* CREATE PROJECT/CLIENT */
+#create-form{
     width: 60%;
 }
 .select_categories{
@@ -238,12 +242,12 @@ input{
     overflow: hidden;
   }
   
-  .select_categories .select{
+.select_categories .select{
     background:url('../assets/images/chevron-down-solid.svg') no-repeat;
     background-position: 100%;
   }
 
-  .select_categories .select select{
+.select_categories .select select{
     background: transparent;
     line-height: 1;
     border: 0;
@@ -253,8 +257,47 @@ input{
     position: relative;
     z-index: 10;
     font-size: 1em;
-  }
+}
 
-  #create-project-form button{
+#create-form button{
       margin: 20px 0;
   }
+  /* CLIENT LIST */
+#single-project{
+    padding: 25px 30vw 25px 75px;
+
+}
+#client-list{
+    list-style-type: none;
+    color: #6ac7b6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+#client-link{
+    color: #6ac7b6;
+    font-weight: 300;
+    padding: 4px;
+    border: 2px solid white;
+}
+#client-link:hover{
+    color: #e16751;
+    padding: 4px;
+    border: #e16751 2px solid;
+}
+/* SINGLE PROJECT / CLIENT  */
+#single-content-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+#single-content-container p{
+    min-width: 35vw;
+    max-width: 35vw;
+}
+.project-btn-container{
+    padding: 25px 0 0 0;
+}
+.project-btn{
+    margin: 0 20px 0 0;
+}
