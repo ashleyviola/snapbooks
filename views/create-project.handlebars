@@ -1,0 +1,39 @@
+<section class="content-container">
+    <div>
+        <div id="return-dashboard-container">
+            <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
+        </div>
+        <form id="create-form">
+            <h2 id="secondary-subhead">Create Project</h2>
+            <label id="secondary-label">Name</label>
+            <input type="text">
+            <label id="secondary-label">Description</label>
+            <input type="text">
+            <label id="secondary-label">Cost</label>
+            <input type="text">
+            <label id="secondary-label">Purchase Order #</label>
+            <input type="text">
+            <label id="secondary-label">Status</label>
+            <div class="select_categories">
+                <div class="select">
+                    <select id="select_categories status" name="status">
+                        <option value="new" selected="selected">New</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="complete">Complete</option>
+                    </select>
+                </div>
+            </div>
+            <label id="secondary-label">Client</label>
+            <div class="select_categories">
+                <div class="select">
+                    <select id="select_categories client" name="client">
+                        <option value="client1" selected="selected">Client 1</option>
+                        <option value="client2">Client 2</option>
+                        <option value="client3">Client 3</option>
+                    </select>
+                </div> 
+            </div>  
+            <button type="submit">Create Project</button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SnapBooks</title>
+        <link rel="stylesheet" href="../../public/stylesheets/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <header id="header-container">
+            <h1>
+                <a href="/">SnapBooks</a>
+            </h1>
+            <nav id="nav-container">
+                {{#if loggedIn}}
+                 <h4>
+                    <a id="nav-link" href="/logout">logout.</a>
+                </h4>
+                {{else}}
+                <h4>
+                    <a id="nav-link login" href="/login">login.</a>
+                </h4>
+                <h4>
+                    <a id="nav-link login" href="/login">get started.</a>
+                </h4>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+           {{{body}}}
+        </main>
+        <footer>
+            <div id="footer-container">
+                <h4>
+                    &#169; 2022 | SnapBooks
+                </h4>
+            </div>
+        </footer>
+    </body>
+</html>
