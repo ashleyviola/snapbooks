@@ -8,7 +8,7 @@ body{
 }
 
 /* UNIVERSAL TEXT & FEATURES */
-h1, h3, h4, p, button, label {
+h1, h3, h4, p, button, label, a {
     font-family: 'Poppins', sans-serif;
 }
 h2 {
@@ -194,7 +194,7 @@ input{
 }
 /* CONTENT CONTAINER */
 .content-container{
-    padding: 25px 75px;
+    padding: 25px 30vw 25px 75px;
     background-color: white;
     min-height: 75vh;
     height: auto;
@@ -291,13 +291,25 @@ input{
     justify-content: space-between;
     align-items: baseline;
 }
-#single-content-container p{
+#single-content-container p, #single-content-container a, #single-content-container input{
     min-width: 35vw;
     max-width: 35vw;
+    color: #6ac7b6;
+    font-size: 14px;
 }
-.project-btn-container{
+#single-content-container a:hover{
+    color: #e16751;
+}
+.project-btn-container, .client-btn-container{
+    display: flex;
+    justify-content: start;
     padding: 25px 0 0 0;
 }
-.project-btn{
+.project-btn, .client-btn{
     margin: 0 20px 0 0;
+}
+.project-save-btn-container, .company-save-btn-container{
+    display: flex;
+    justify-content: end;
+    padding: 25px 0 0 0;
 }
