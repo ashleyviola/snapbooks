@@ -19,7 +19,7 @@
                     <select id="select_categories status" name="status">
                         <option value="new" selected="selected">New</option>
                         <option value="in-progress">In Progress</option>
-                        <option value="complete">Complete</option>
+                        <option value="completed">Completed</option>
                     </select>
                 </div>
             </div>
@@ -27,9 +27,9 @@
             <div class="select_categories">
                 <div class="select">
                     <select id="select_categories client" name="client">
-                        <option value="client1" selected="selected">Client 1</option>
-                        <option value="client2">Client 2</option>
-                        <option value="client3">Client 3</option>
+                        {{#each client as |client|}}
+                        <option value="{{client.company_name}}" selected="selected">{{client.company_name}}</option>
+                        {{/each}}
                     </select>
                 </div> 
             </div>  

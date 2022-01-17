@@ -4,8 +4,12 @@
     </div>
     <div>
         <h2 id="secondary-subhead">Client List</h2>
+        {{#if client.length}}
         <ul class="fa-ul" id="client-list">
-            <li><a id="client-link"href="/client/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Company Name </a></li>
+            {{#each client as |client| }}
+            <li><a id="client-link"href="/client/{{client.id}}}"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>{{client.company_name}}</a></li>
+            {{/each }}
         </ul>
+        {{/if}}
     </div> 
 </section>

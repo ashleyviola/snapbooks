@@ -3,26 +3,26 @@
         <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
     </div>
     <div>
-        <h2 id="secondary-subhead">Project Name</h2>
+        <h2 id="secondary-subhead">{{project.project_name}}</h2>
         <div id="single-content-container">
             <h3 id="secondary-subhead">Description</h3>
-            <p>Lorem ipsum dolor sit amet, rebum affert graeci cu est, nostrum partiendo petentium sit ei, has et autem lobortis. Usu duis facilis argumentum ea, ex fastidii copiosae salutandi usu, quem quaeque volutpat eum ei. Id vitae numquam offendit duo. </p>
+            <p>{{project.description}}</p>
         </div>
         <div id="single-content-container">
             <h3 id="secondary-subhead">Cost</h3>
-            <p>$XXXX</p>
+            <p>{{project.cost}}</p>
         </div>
         <div id="single-content-container">
             <h3 id="secondary-subhead">Purchase Order</h3>
-            <p>XXXXXX</p>
+            <p>{{project.purchase_order_number}}</p>
         </div>
         <div id="single-content-container">
             <h3 id="secondary-subhead">Status</h3>
-            <p>Lorem ipsum</p>
+            <p>{{project.status}}</p>
         </div>
         <div id="single-content-container">
             <h3 id="secondary-subhead">Client</h3>
-            <p>Lorem ipsum</p>
+            <p>{{client.company_name}}</p>
         </div>
     </div> 
     <div class="project-btn-container"> 

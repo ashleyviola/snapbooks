@@ -2,10 +2,16 @@
     <div id="return-dashboard-container">
         <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
     </div>
+    {{#if project.length}}
     <div>
         <h2 id="secondary-subhead">Project List</h2>
+        {{#each project as |project| }}
         <ul class="fa-ul" id="project-list">
-            <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name | Status</a></li>
+            <li><a id="project-link"href="/project/{{project.id}}"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>{{project.name}} | {{client.company_name}} | {{project.status}}</a></li>
         </ul>
     </div> 
+    {{else}}
+        <h2 id="secondary-subhead">Project List</h2>
+        <p>No projects currently saved. </p>
+    {{/if}}
 </section>
