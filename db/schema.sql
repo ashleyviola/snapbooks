@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS snapbooks_db;
+CREATE DATABASE snapbooks_db;

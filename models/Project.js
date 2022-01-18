@@ -21,11 +21,11 @@ Project.init(
       allowNull: false
     },
     cost: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     project_order_number: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     status: {
