@@ -1,20 +1,20 @@
 <section class="content-container">
     <div>
         <div id="return-dashboard-container">
-            <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
+            <a id="secondary-subhead" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
         </div>
-        <form id="create-form">
+        <form id="create-form create-client-form">
             <h2 id="secondary-subhead">Create Client</h2>
             <label id="secondary-label">Company</label>
-            <input type="text">
+            <input type="text" id="client-company">
             <label id="secondary-label">Address</label>
-            <input type="text">
+            <input type="text" id="client-address">
             <label id="secondary-label">City</label>
-            <input type="text">
+            <input type="text" id="client-city">
             <label id="secondary-label">State</label>
             <div class="select_categories">
                 <div class="select">
-                    <select id="select_categories state" name="state">
+                    <select id="select_categories client-state" name="state">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -70,14 +70,16 @@
                 </div>
             </div>
             <label id="secondary-label">Zip Code</label>
-            <input type="number">
+            <input type="number" id="client-zip">
             <label id="secondary-label">Contact</label>
-            <input type="text">
+            <input type="text" id="client-contact">
             <label id="secondary-label">Email</label> 
-            <input type="email">
+            <input type="email" id="client-email">
             <label id="secondary-label">Phone Number</label> 
-            <input type="tel">
+            <input type="tel" id="client-tel">
             <button type="submit">Create Client</button>
         </form>
     </div>
 </section>
+
+<script src="../public/javascript/add-client.js"></script>
