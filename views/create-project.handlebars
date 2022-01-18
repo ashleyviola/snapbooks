@@ -3,20 +3,20 @@
         <div id="return-dashboard-container">
             <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
         </div>
-        <form id="create-form">
+        <form id="create-form new-project-form">
             <h2 id="secondary-subhead">Create Project</h2>
             <label id="secondary-label">Name</label>
-            <input type="text">
+            <input type="text" id="project-name">
             <label id="secondary-label">Description</label>
-            <input type="text">
+            <input type="text" id="project-description">
             <label id="secondary-label">Cost</label>
-            <input type="text">
+            <input type="text" id="project-cost">
             <label id="secondary-label">Purchase Order #</label>
-            <input type="text">
+            <input type="text" id="project-po">
             <label id="secondary-label">Status</label>
             <div class="select_categories">
                 <div class="select">
-                    <select id="select_categories status" name="status">
+                    <select id="select_categories project-status" name="status">
                         <option value="new" selected="selected">New</option>
                         <option value="in-progress">In Progress</option>
                         <option value="completed">Completed</option>
@@ -26,7 +26,7 @@
             <label id="secondary-label">Client</label>
             <div class="select_categories">
                 <div class="select">
-                    <select id="select_categories client" name="client">
+                    <select id="select_categories project-client" name="client">
                         {{#each client as |client|}}
                         <option value="{{client.company_name}}" selected="selected">{{client.company_name}}</option>
                         {{/each}}
@@ -37,3 +37,5 @@
         </form>
     </div>
 </section>
+
+<script src="../public/javascript/add-project.js"></script>
