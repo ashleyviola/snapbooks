@@ -1,6 +1,6 @@
 <section class="content-container" id="single-project">
     <div id="return-dashboard-container">
-        <button type="button"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</button>
+        <a id="secondary-subhead" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
     </div>
     <div>
         <h2 id="secondary-subhead">{{project.project_name}}</h2>
@@ -26,8 +26,8 @@
         </div>
     </div> 
     <div class="project-btn-container"> 
-        <button class="project-btn">Edit Project</button>
-        <button class="project-btn">Delete Project</button>
+        {{!-- <button class="project-btn">Edit Project</button>
+        <button class="project-btn">Delete Project</button> --}}
         <button class="project-btn">Download PDF</button>
     </div>
 </section>
