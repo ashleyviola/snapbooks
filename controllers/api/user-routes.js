@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
           "contact_last_name",
           "email",
           "phone_number",
-          "user_id",
+          "user_id"
         ],
         include: {
           model: Project,
@@ -45,11 +45,11 @@ router.get("/:id", (req, res) => {
             "cost",
             "project_order_number",
             "status",
-            "client_id",
-          ],
-        },
-      },
-    ],
+            "client_id"
+          ]
+        }
+      }
+    ]
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -66,7 +66,7 @@ router.get("/:id", (req, res) => {
 
 // create user
 router.post("/", (req, res) => {
-  // expects {username: 'patches', email: 'trains-with-wrenches@mailinator.com', password: 'password1234'}
+  // expects {username: "patches", email: "trains-with-wrenches@mailinator.com", password: "password1234"}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -89,11 +89,11 @@ router.post("/", (req, res) => {
 
 // user login
 router.post("/login", (req, res) => {
-  // expects {email: 'trains-with-wrenches@mailinator.com', password: 'password1234'}
+  // expects {"email": "saleabration03@mailinator.com", "password": "money!5mymiddl3name"}
   User.findOne({
     where: {
       email: req.body.email,
-    },
+    }
   }).then((dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that email address!" });
