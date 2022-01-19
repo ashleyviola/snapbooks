@@ -10,7 +10,7 @@
             <div>
                 <h3 id="secondary-subhead">New</h3>
                 <ul class="fa-ul" id="project-list">
-                    {{#each}}
+                    {{#each project}}
                     {{#ifContains project '{"status":"New"}'}}
                     <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
@@ -20,7 +20,7 @@
             <div>
                 <h3 id="secondary-subhead">In Progress</h3>
                 <ul class="fa-ul" id="project-list">
-                    {{#each}}
+                    {{#each project}}
                     {{#ifContains project '{"status":"In Progress"}'}}
                     <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
@@ -30,7 +30,7 @@
             <div>
                 <h3 id="secondary-subhead">Completed</h3>
                 <ul class="fa-ul" id="project-list">
-                    {{#each}}
+                    {{#each project}}
                     {{#ifContains project '{"status":"Completed"}'}}
                     <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
