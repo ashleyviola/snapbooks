@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project } = require("../../models");
+const { Project, Client } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all projects
@@ -26,13 +26,17 @@ router.get("/:id", (req, res) => {
       "project_order_number",
       "status",
       "client_id"
-    ]
+    ], include: {
+      model: Client,
+      attributes: ['company_name']
+    }
   })
     .then((dbUserData) => {
       if (!dbUserData) {
         res.status(404).json({ message: "No project found with this id" });
         return;
       }
+      console.log(dbUserData)
       res.json(dbUserData);
     })
     .catch((err) => {
@@ -43,15 +47,15 @@ router.get("/:id", (req, res) => {
 
 // create project
 router.post("/", withAuth, (req, res) => {
-// expect
-// {
-//   "project_name": "Madmartigan Mobile App",
-//   "description": "Create a mobile app for tracking hike data.",
-//   "cost": 2375,
-//   "project_order_number": null,
-//   "status": "New",
-//   "client_id": 2
-// }
+  // expect
+  // {
+  //   "project_name": "Madmartigan Mobile App",
+  //   "description": "Create a mobile app for tracking hike data.",
+  //   "cost": 2375,
+  //   "project_order_number": null,
+  //   "status": "New",
+  //   "client_id": 2
+  // }
   Project.create({
     project_name: req.body.project_name,
     description: req.body.description,
@@ -59,7 +63,7 @@ router.post("/", withAuth, (req, res) => {
     project_order_number: req.body.project_order_number,
     status: req.body.status,
     client_id: req.body.client_id,
-    user_id: req.session.user_id
+    // user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

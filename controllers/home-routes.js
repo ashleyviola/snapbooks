@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
 // user login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -50,8 +50,8 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
- 
+
   res.render('logout');
- 
+
 });
 module.exports = router;

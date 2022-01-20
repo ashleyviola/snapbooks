@@ -1,10 +1,10 @@
 <section class="content-container">
     <div id="dashboard-heading-container">
         <h2 id="secondary-subhead">Dashboard</h2>
-        <a id="secondary-subhead" href="/clients">View All Clients</a>
+        <a id="secondary-subhead" href="/dashboard/clients">View All Clients</a>
         <a id="secondary-subhead" href="/dashboard/create-client">Create Client</a>
-        <a id="secondary-subhead" href="/projects">View All Projects</a>
-        <a id="secondary-subhead" href="/create-project">Create Project</a>
+        <a id="secondary-subhead" href="/dashboard/projects">View All Projects</a>
+        <a id="secondary-subhead" href="/dashboard/create-project">Create Project</a>
         {{!-- <button type="button">Create Project</button>
         <button type="button">Create Client</button>
         <button type="button">View All Projects</button>
@@ -16,7 +16,7 @@
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"New"}'}}
-                    <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
+                    <li><a id="project-link"href="/dashboard/projects/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
                     {{/each}}
                 </ul>
@@ -26,7 +26,7 @@
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"In Progress"}'}}
-                    <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
+                    <li><a id="project-link"href="/dashboard/projects/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
                     {{/each}}
                 </ul>
@@ -36,7 +36,7 @@
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"Completed"}'}}
-                    <li><a id="project-link"href="/project/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
+                    <li><a id="project-link"href="/dashboard/projects/:id"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>Project Name | Client Name</a></li>
                     {{/ifContains}}
                     {{/each}}
                 </ul>

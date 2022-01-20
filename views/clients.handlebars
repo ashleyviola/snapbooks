@@ -6,7 +6,7 @@
         <h2 id="secondary-subhead">Client List</h2>
         <ul class="fa-ul" id="client-list">
             {{#each clients as |client|}}
-            <li><a id="client-link" href="/client/{{client.id}}"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>{{client.company_name}}</a></li>
+            <li><a id="client-link" href="/dashboard/clients/{{client.id}}"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>{{client.company_name}}</a></li>
             {{/each }}
         </ul>
     </div>

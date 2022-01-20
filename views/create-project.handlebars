@@ -3,7 +3,7 @@
         <div id="return-dashboard-container">
         <a id="secondary-subhead" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
         </div>
-        <form id="create-form new-project-form">
+        <form id="create-form" class="new-project-form">
             <h2 id="secondary-subhead">Create Project</h2>
             <label id="secondary-label">Name</label>
             <input type="text" id="project-name">
@@ -16,23 +16,23 @@
             <label id="secondary-label">Status</label>
             <div class="select_categories">
                 <div class="select">
-                    <select id="select_categories project-status" name="status">
-                        <option value="new" selected="selected">New</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="completed">Completed</option>
+                    <select id="project-status" name="status">
+                        <option value="New" selected="selected">New</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
                     </select>
                 </div>
             </div>
             <label id="secondary-label">Client</label>
             <div class="select_categories">
                 <div class="select">
-                    <select id="select_categories project-client" name="client">
-                        {{#each client as |client|}}
-                        <option value="{{client.company_name}}" selected="selected">{{client.company_name}}</option>
+                    <select id="project-client" name="client">
+                        {{#each clients as |clients|}}
+                        <option value="{{clients.id}}" selected="selected">{{clients.company_name}}</option>
                         {{/each}}
                     </select>
-                </div> 
-            </div>  
+                </div>
+            </div>
             <button type="submit">Create Project</button>
         </form>
     </div>
