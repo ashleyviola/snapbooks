@@ -82,6 +82,34 @@ router.get('/clients/:id', (req, res) => {
     });
 });
 
+router.get('/create-client', withAuth, (req, res) => {
+  Client.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: ['id', 'company_name', 'address', 'city', 'state', 'zip', 'contact_first_name', 'contact_last_name', 'email', 'phone_number', 'user_id'],
+    include: {
+      model: Project,
+      attributes: ['id', 'project_name', 'description', 'cost', 'project_order_number', 'status', 'client_id']
+    }
+  })
+    .then(dbClientData => {
+      // get username
+      const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const serializedClients = dbClientData.map(clients => clients.get({ plain: true }));
+      // destructure company_name and projects from applicable clients
+      const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
+        company_name,
+        [project_name]
+      ]));
+      res.render('create-client', { clients, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 // get project list - enhancement
 router.get('/projects/', withAuth, (req, res) => {
 
