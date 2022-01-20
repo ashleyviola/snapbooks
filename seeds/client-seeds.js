@@ -11,7 +11,7 @@ const clientData = [
     contact_last_name: 'O\'Houlihan',
     email: 'trains-with-wrenches@mailinator.com',
     phone_number: '4401239876',
-    user_id: 4
+    user_id: 2
   },
   {
     company_name: 'Madmartigan Hiking Co.',
@@ -47,7 +47,7 @@ const clientData = [
     contact_last_name: 'Wistar',
     email: 'mission.imfossilble@mailinator.com',
     phone_number: '5174620000',
-    user_id: 4
+    user_id: 3
   },
   {
     company_name: 'Home Alone Security',
@@ -59,7 +59,7 @@ const clientData = [
     contact_last_name: 'McAlister',
     email: 'keviiinnnnn!!!@mailinator.com',
     phone_number: '5401236789',
-    user_id: 4
+    user_id: 2
   }
 ]
 

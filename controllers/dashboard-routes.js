@@ -1,12 +1,10 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { User, Project, Client } = require('./../models');
+const withAuth = require('../utils/auth');
 
 // get all clients and projects for dashboard
-// router.get('/', withAuth, (req, res) => {
-// renders dashboard page
-router.get('/', (req, res) => {
-  console.log(req.session);
-  console.log('======================');
+router.get('/', withAuth, (req, res) => {
   Client.findAll({
     where: {
       user_id: req.session.user_id
@@ -17,9 +15,17 @@ router.get('/', (req, res) => {
       attributes: ['id', 'project_name', 'description', 'cost', 'project_order_number', 'status', 'client_id']
     }
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+    .then(dbClientData => {
+      // get username
+      const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const serializedClients = dbClientData.map(clients => clients.get({ plain: true }));
+      // destructure company_name and projects from applicable clients
+      // const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
+      //   company_name,
+      //   [project_name]
+      // ]));
+      res.render('dashboard', { serializedClients, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
@@ -28,21 +34,175 @@ router.get('/', (req, res) => {
 });
 
 // get client list
-// render client list
-// looks same as dashboard but no include model project portion
-// res.render look in views folder for the page clients
+router.get('/clients', withAuth, (req, res) => {
+  Client.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: ['id', 'company_name', 'address', 'city', 'state', 'zip', 'contact_first_name', 'contact_last_name', 'email', 'phone_number', 'user_id']
+  })
+    .then(dbClientData => {
+      // get username
+      // const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const clients = dbClientData.map(clients => clients.get({ plain: true }));
+
+      res.render('clients', { clients, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // get a single client
-// renders single client page
-// similar to home routes in module
-// router.get('/clients/:id', (req, res) => {...
+router.get('/clients/:id', (req, res) => {
+  Client.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'company_name', 'address', 'city', 'state', 'zip', 'contact_first_name', 'contact_last_name', 'email', 'phone_number', 'user_id'],
+  })
+    .then(dbClientData => {
+      if (!dbClientData) {
+        res.status(404).json({ message: 'No client found with this id' });
+        return;
+      }
+
+      const client = dbClientData.get({ plain: true });
+
+      res.render('single-client', {
+        client,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/create-client', withAuth, (req, res) => {
+  Client.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: ['id', 'company_name', 'address', 'city', 'state', 'zip', 'contact_first_name', 'contact_last_name', 'email', 'phone_number', 'user_id'],
+    include: {
+      model: Project,
+      attributes: ['id', 'project_name', 'description', 'cost', 'project_order_number', 'status', 'client_id']
+    }
+  })
+    .then(dbClientData => {
+      // get username
+      const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const serializedClients = dbClientData.map(clients => clients.get({ plain: true }));
+      // destructure company_name and projects from applicable clients
+      const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
+        company_name,
+        [project_name]
+      ]));
+      res.render('create-client', { clients, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // get project list - enhancement
-// first get userid from session
-// find clients like dashboard
-// then find clients for those projects
+router.get('/projects/', withAuth, (req, res) => {
+
+  Project.findAll({
+    // where: {
+    // id: req.params.id
+    // },
+    attributes: [
+      "id",
+      "project_name",
+      "description",
+      "cost",
+      "project_order_number",
+      "status",
+      "client_id"
+    ], include: {
+      model: Client,
+      attributes: ['company_name']
+    }
+  })
+    .then(dbProjectData => {
+      // get username
+      // const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const project = dbProjectData.map(projects => projects.get({ plain: true }));
+      // destructure company_name and projects from applicable clients
+      // const project = serializedProjects.map(({ project_name }) => ([[project_name]]));
+      res.render('projects-list', { project, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // get a single project - enhancement
-// renders project overview
+router.get("/projects/:id", (req, res) => {
+  Project.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      "id",
+      "project_name",
+      "description",
+      "cost",
+      "project_order_number",
+      "status",
+      "client_id"
+    ]
+  })
+    .then((dbProjectData) => {
+      if (!dbProjectData) {
+        res.status(404).json({ message: "No project found with this id" });
+        return;
+      }
+      const project = dbProjectData.get({ plain: true });
+      res.render('single-project', { project, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
+// create project
+router.get('/create-project', withAuth, (req, res) => {
+  Client.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: ['id', 'company_name', 'address', 'city', 'state', 'zip', 'contact_first_name', 'contact_last_name', 'email', 'phone_number', 'user_id'],
+    include: {
+      model: Project,
+      attributes: ['id', 'project_name', 'description', 'cost', 'project_order_number', 'status', 'client_id']
+    }
+  })
+    .then(dbClientData => {
+      // get username
+      // const username = req.session.username;
+      // serialize Sequelize response to only properties we need
+      const clients = dbClientData.map(clients => clients.get({ plain: true }));
+      // destructure company_name and projects from applicable clients
+      // const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
+        // company_name,
+        // [project_name]
+      // ]));
+      res.render('create-project', { clients, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 module.exports = router;
