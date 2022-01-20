@@ -6,27 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SnapBooks</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="/stylesheets/hover-min.css" rel="stylesheet" media="all">
     </head>
     <body>
         <header id="header-container">
             <h1>
-                <a href="/">SnapBooks</a>
+                <a href="/" class="hvr-grow">SnapBooks</a>
             </h1>
             <nav id="nav-container">
                 {{#if loggedIn}}
-                <button id="logout">logout.</button>
+                <button id="logout" class="hvr-shrink">logout.</button>
                  {{!-- <h4>
                     <a id="nav-link" href="/logout">logout.</a>
                 </h4> --}}
                 {{else}}
                 <h4>
-                    <a id="nav-link login" href="/login">login.</a>
+                    <a id="nav-link login" href="/login" class="hvr-underline-from-center hvr-grow">login.</a>
                 </h4>
                 <h4>
-                    <a id="nav-link login" href="/login">get started.</a>
+                    <a id="nav-link login" href="/login"class="hvr-underline-from-center hvr-grow">get started.</a>
                 </h4>
                 {{/if}}
             </nav>

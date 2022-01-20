@@ -1,10 +1,10 @@
 <section class="content-container">
     <div id="dashboard-heading-container">
         <h2 id="secondary-subhead">Dashboard</h2>
-        <a id="secondary-subhead" href="/dashboard/clients">View All Clients</a>
-        <a id="secondary-subhead" href="/dashboard/create-client">Create Client</a>
-        <a id="secondary-subhead" href="/dashboard/projects">View All Projects</a>
-        <a id="secondary-subhead" href="/dashboard/create-project">Create Project</a>
+        <a id="secondary-subhead" href="/dashboard/clients" class="hvr-underline-reveal">View All Clients</a>
+        <a id="secondary-subhead" href="/dashboard/create-client" class="hvr-underline-reveal">Create Client</a>
+        <a id="secondary-subhead" href="/dashboard/projects" class="hvr-underline-reveal">View All Projects</a>
+        <a id="secondary-subhead" href="/dashboard/create-project" class="hvr-underline-reveal">Create Project</a>
         {{!-- <button type="button">Create Project</button>
         <button type="button">Create Client</button>
         <button type="button">View All Projects</button>
@@ -12,7 +12,7 @@
     </div>
         <div id="dashboard-list-container">
             <div>
-                <h3 id="secondary-subhead">New</h3>
+                <h3 id="secondary-subhead" class="hvr-float-shadow">New</h3>
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"New"}'}}
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             <div>
-                <h3 id="secondary-subhead">In Progress</h3>
+                <h3 id="secondary-subhead" class="hvr-float-shadow">In Progress</h3>
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"In Progress"}'}}
@@ -32,7 +32,7 @@
                 </ul>
             </div>
             <div>
-                <h3 id="secondary-subhead">Completed</h3>
+                <h3 id="secondary-subhead" class="hvr-float-shadow">Completed</h3>
                 <ul class="fa-ul" id="project-list">
                     {{#each project}}
                     {{#ifContains project '{"status":"Completed"}'}}
