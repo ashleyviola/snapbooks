@@ -1,0 +1,41 @@
+<section class="content-container">
+    <div>
+        <div id="return-dashboard-container">
+        <a class="return-to-dashboard" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
+        </div>
+        <form id="create-form" class="new-project-form">
+            <h2 id="secondary-subhead">Create Project</h2>
+            <label id="secondary-label">Name</label>
+            <input type="text" id="project-name">
+            <label id="secondary-label">Description</label>
+            <input type="text" id="project-description">
+            <label id="secondary-label">Cost</label>
+            <input type="text" id="project-cost">
+            <label id="secondary-label">Purchase Order #</label>
+            <input type="text" id="project-po">
+            <label id="secondary-label">Status</label>
+            <div class="select_categories">
+                <div class="select">
+                    <select id="project-status" name="status">
+                        <option value="New" selected="selected">New</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+            <label id="secondary-label">Client</label>
+            <div class="select_categories">
+                <div class="select">
+                    <select id="project-client" name="client">
+                        {{#each clients as |clients|}}
+                        <option value="{{clients.id}}" selected="selected">{{clients.company_name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <button type="submit">Create Project</button>
+        </form>
+    </div>
+</section>
+
+<script src="/javascript/add-project.js"></script>

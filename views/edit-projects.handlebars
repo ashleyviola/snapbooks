@@ -1,0 +1,31 @@
+<section class="content-container" id="single-project">
+    <div id="return-dashboard-container">
+        <a class="return-to-dashboard" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
+    </div>
+    <form>
+        <h2 id="secondary-subhead">{{project.project_name}}</h2>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Description</h3>
+            <input name="project-description" type="text" value="{{project.description}}">
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Cost</h3>
+            <input name="project-cost" type="text" value="{{project.cost}}">
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Purchase Order</h3>
+            <input name="project-po" type="text" value="{{project.purchase_order_number}}">
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Status</h3>
+            <input name="project-status" type="text" value="{{project.status}}">
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Client</h3>
+            <input name="project-client" type="text" value="{{client.company_name}}">
+        </div>
+    </form>
+    <div class="project-save-btn-container">
+        <button class="project-save-btn">Save Changes</button>
+    </div>
+</section>

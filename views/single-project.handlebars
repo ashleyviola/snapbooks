@@ -1,0 +1,33 @@
+<section class="content-container" id="single-project">
+    <div id="return-dashboard-container">
+        <a class="return-to-dashboard" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
+    </div>
+    <div>
+        <h2 id="secondary-subhead">{{project.project_name}}</h2>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Description</h3>
+            <p>{{project.description}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Cost</h3>
+            <p>{{project.cost}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Purchase Order</h3>
+            <p>{{project.purchase_order_number}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Status</h3>
+            <p>{{project.status}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Client</h3>
+            <p>{{this.client}}</p>
+        </div>
+    </div>
+    <div class="project-btn-container">
+        {{!-- <button class="project-btn">Edit Project</button>
+        <button class="project-btn">Delete Project</button> --}}
+        <a class="download-PDF" href="/generatePDF/{{project.id}}">Download PDF</a>
+    </div>
+</section>

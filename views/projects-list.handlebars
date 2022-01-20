@@ -1,0 +1,15 @@
+<section class="content-container">
+    <div id="return-dashboard-container">
+        <a class="return-to-dashboard" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
+    </div>
+
+    <div>
+        <h2 id="secondary-subhead">Project List</h2>
+        {{#each project as |project| }}
+        <ul class="fa-ul" id="project-list">
+            <li><a id="project-link"href="/dashboard/projects/{{project.id}}"><span class="fa-li"><i class="fas fa-chevron-right"></i></span>{{project.project_name}} | {{project.client.company_name}} | {{project.status}}</a></li>
+        </ul>
+        {{/each }}
+    </div>
+
+</section>

@@ -1,0 +1,32 @@
+<section class="content-container" id="single-client">
+    <div id="return-dashboard-container">
+        <a class="return-to-dashboard" href="/dashboard"><i class="fas fa-long-arrow-alt-left"></i> Return to Dashboard</a>
+    </div>
+    <div>
+        <h2 id="secondary-subhead">{{client.company_name}}</h2>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Address</h3>
+            <p>{{client.address}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">City</h3>
+            <p>{{client.city}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">State</h3>
+            <p>{{client.state}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Contact</h3>
+            <p>{{client.contact_first_name}}</p>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Email</h3>
+            <a href="mailto:{{client.email}}">{{client.email}}</a>
+        </div>
+        <div id="single-content-container">
+            <h3 id="secondary-subhead">Phone Number</h3>
+            <p>{{client.phone_number}}</p>
+        </div>
+    </div>
+</section>
