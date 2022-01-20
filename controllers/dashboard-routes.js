@@ -21,11 +21,11 @@ router.get('/', withAuth, (req, res) => {
       // serialize Sequelize response to only properties we need
       const serializedClients = dbClientData.map(clients => clients.get({ plain: true }));
       // destructure company_name and projects from applicable clients
-      const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
-        company_name,
-        [project_name]
-      ]));
-      res.render('dashboard', { clients, loggedIn: true });
+      // const clients = serializedClients.map(({ company_name, projects: [{ project_name }] }) => ([
+      //   company_name,
+      //   [project_name]
+      // ]));
+      res.render('dashboard', { serializedClients, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
@@ -83,15 +83,12 @@ router.get('/clients/:id', (req, res) => {
 });
 
 // get project list - enhancement
-// first get userid from session
-// find clients like dashboard
-// then find clients for those projects
 router.get('/projects/', withAuth, (req, res) => {
 
   Project.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
+    // where: {
+    // id: req.params.id
+    // },
     attributes: [
       "id",
       "project_name",
@@ -100,15 +97,18 @@ router.get('/projects/', withAuth, (req, res) => {
       "project_order_number",
       "status",
       "client_id"
-    ]
+    ], include: {
+      model: Client,
+      attributes: ['company_name']
+    }
   })
     .then(dbProjectData => {
       // get username
-      const username = req.session.username;
+      // const username = req.session.username;
       // serialize Sequelize response to only properties we need
-      const serializedProjects = dbProjectData.map(projects => projects.get({ plain: true }));
+      const project = dbProjectData.map(projects => projects.get({ plain: true }));
       // destructure company_name and projects from applicable clients
-      const project = serializedProjects.map(({ project_name }) => ([[project_name]]));
+      // const project = serializedProjects.map(({ project_name }) => ([[project_name]]));
       res.render('projects-list', { project, loggedIn: true });
     })
     .catch(err => {
@@ -121,7 +121,7 @@ router.get('/projects/', withAuth, (req, res) => {
 router.get("/projects/:id", (req, res) => {
   Project.findOne({
     where: {
-      user_id: req.session.user_id
+      id: req.params.id
     },
     attributes: [
       "id",

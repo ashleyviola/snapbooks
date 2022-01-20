@@ -8,9 +8,7 @@ router.get('/', (req, res) => {
   // stream pdf to response
   doc.pipe(res)
   // define header for response to render readable pdf
-  res.writeHead(200, {
-    'Content-Type': 'application/pdf'
-  })
+  res.setHeader('Content-Type', 'application/pdf')
 
   // create array for list of clients (what if none?)
   Client.findAll({
@@ -62,7 +60,7 @@ router.get('/', (req, res) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json(err)
+      // res.status(500).json(err)
     })
 })
 
