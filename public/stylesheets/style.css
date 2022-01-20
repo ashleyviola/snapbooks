@@ -75,7 +75,7 @@ input{
     border: #edb950 2px solid;
 }
 /* NAV & FOOTER */
-#nav-link:hover{
+.nav-link:hover{
     color: #e16751;
     border-top: 2px solid;
 }
@@ -152,10 +152,10 @@ input{
     width: 600px;
 
 }
-#use-icon{
+.use-icon{
     width: 100px;
 }
-#use-list-item{
+.use-list-item{
     margin: 0 0 40px 0;
 }
 #demo-container{
@@ -216,11 +216,32 @@ input{
     height: auto;
 }
 /* dashboard */
-#dashboard-list-container{
+.dashboard-list-container{
     display: flex;
     justify-content: space-between;
 }
-
+.dashboard-list-container{
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-list{
+    list-style: none;
+    column-count: 4;
+    column-gap: 10vw;
+}
+.dashboard-icon{
+    width: 165px;
+    padding: 15px 0;
+}
+.dashboard-link{
+    font-size: 20px;
+    color: #6ac7b6;
+    font-weight: 500;
+}
+.dashboard-link:hover{
+    color: #e16751;
+    border-top: #e16751 2px solid;
+}
 #project-list{
     list-style-type: circle;
     color: #6ac7b6;
@@ -247,6 +268,19 @@ input{
 }
 
 /* CREATE PROJECT/CLIENT */
+.return-to-dashboard{
+    font-size: 18px;
+    color: white;
+    background-color: #edb950;
+    border: 2px transparent solid;
+    padding: 10px
+}
+.return-to-dashboard:hover{
+    color: #edb950;
+    background-color: transparent;
+    border: 2px #edb950 solid;
+    padding: 10px
+}
 #create-form{
     width: 60%;
 }
@@ -328,4 +362,15 @@ input{
     display: flex;
     justify-content: end;
     padding: 25px 0 0 0;
+}
+.download-PDF{
+    background-color: #edb950;
+    border: 2px transparent solid;
+    padding: 15px
+}
+.download-PDF:hover{
+    color: #edb950;
+    background-color:transparent;
+    border: 2px #edb950 solid;
+    padding: 15px
 }
