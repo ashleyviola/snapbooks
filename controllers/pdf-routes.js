@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const { User, Project, Client } = require('./../models')
 const PDFDocument = require('pdfkit')
-const doc = new PDFDocument()
 
 // ENHANCEMENT OPPORTUNITY
 // router.get('/', async (req, res) => {
@@ -67,6 +66,11 @@ const doc = new PDFDocument()
 
 // generate PDF by project id
 router.get('/:id', (req, res) => {
+  /*
+  This MUST be set INSIDE the route otherwise subsequent calls to endpoint won't have anything to attach PDF to and you get a 200 OK response, but "No body returned for response" message
+  */
+  const doc = new PDFDocument()
+
   doc.pipe(res)
   res.setHeader('Content-Type', 'application/pdf')
 
