@@ -1,11 +1,13 @@
+// setup routes with express.js and sequelize
 const router = require("express").Router();
 const { Project, Client } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all projects
 router.get("/", (req, res) => {
+  // find all projects
   Project.findAll()
-    .then(dbCommentData => res.json(dbCommentData))
+    .then(dbProjectData => res.json(dbProjectData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -16,8 +18,10 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   Project.findOne({
     where: {
+      // use id supplied as parameter
       id: req.params.id,
     },
+    // project information
     attributes: [
       "id",
       "project_name",
@@ -28,16 +32,18 @@ router.get("/:id", (req, res) => {
       "client_id"
     ], include: {
       model: Client,
+      // client information, only need company name
       attributes: ['company_name']
     }
   })
-    .then((dbUserData) => {
-      if (!dbUserData) {
+    .then((dbProjectData) => {
+      // if no projects found return error message
+      if (!dbProjectData) {
         res.status(404).json({ message: "No project found with this id" });
         return;
       }
-      console.log(dbUserData)
-      res.json(dbUserData);
+      console.log(dbProjectData);
+      res.json(dbProjectData);
     })
     .catch((err) => {
       console.log(err);
@@ -45,7 +51,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// create project
+// post create project
 router.post("/", withAuth, (req, res) => {
   // expect
   // {
@@ -56,6 +62,7 @@ router.post("/", withAuth, (req, res) => {
   //   "status": "New",
   //   "client_id": 2
   // }
+  // create project using supplied data and require authentication
   Project.create({
     project_name: req.body.project_name,
     description: req.body.description,
@@ -63,9 +70,8 @@ router.post("/", withAuth, (req, res) => {
     project_order_number: req.body.project_order_number,
     status: req.body.status,
     client_id: req.body.client_id,
-    // user_id: req.session.user_id
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbProjectData => res.json(dbProjectData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

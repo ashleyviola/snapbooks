@@ -254,7 +254,6 @@ input{
     padding: 5px 0;
     list-style-type: none;
 }
-
 #project-link{
     color: #6ac7b6;
     font-weight: 300;
@@ -290,13 +289,11 @@ input{
     background: #fff;
     border: 2px solid #edb950;
     overflow: hidden;
-  }
-  
+}
 .select_categories .select{
     background:url('../assets/images/chevron-down-solid.svg') no-repeat;
     background-position: 100%;
-  }
-
+}
 .select_categories .select select{
     background: transparent;
     line-height: 1;
@@ -308,11 +305,11 @@ input{
     z-index: 10;
     font-size: 1em;
 }
-
 #create-form button{
       margin: 20px 0;
-  }
-  /* CLIENT LIST */
+}
+  
+/* CLIENT LIST */
 #single-project{
     padding: 25px 30vw 25px 75px;
 
@@ -323,6 +320,9 @@ input{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 18px;
+}
+#client-list li{
+    padding: 10px 0;
 }
 #client-link{
     color: #6ac7b6;
@@ -335,11 +335,15 @@ input{
     padding: 4px;
     border: #e16751 2px solid;
 }
+
 /* SINGLE PROJECT / CLIENT  */
 #single-content-container{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+#project-list li{
+    padding: 10px 0;
 }
 #single-content-container p, #single-content-container a, #single-content-container input{
     min-width: 35vw;
@@ -373,4 +377,115 @@ input{
     background-color:transparent;
     border: 2px #edb950 solid;
     padding: 15px
+}
+
+@media screen and (max-width: 768px){
+    /* homepage */
+    #banner-container {
+        padding: 2vw 0;
+    }
+    #banner-copy-container {
+        padding: 10px 4vw;
+    }
+    #banner-img {
+        width: 350px;
+        padding: 0 80px 0 0;
+        flex-grow: 2;
+    }
+    #use-container{
+        padding: 2vw;
+    }
+    #use-list{
+        column-count: 3;
+        column-gap: 2vw;
+    
+    }
+    #use-copy-container{
+        color: #6ac7b6;
+        padding: 10px 45px;
+        width: 400px;
+    }
+    .use-icon{
+        width: 75px;
+    }
+    #demo-container{
+        padding: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #6ac7b6;    
+    }
+    #demo-img{
+        width: 350px;
+    }
+    /* dashboard */
+    .dashboard-list{
+        column-count: 2;
+        column-gap: 10vw;
+    }
+    #create-form{
+        width: 90%;
+    }
+    .content-container{
+        padding: 25px 5vw 25px 75px;
+    }
+    /* logout */
+    #logout-container{
+        padding: 25px 0 0 0;
+        height: 75vh;
+        margin: 2vw;
+    }
+    #logout-copy-container{
+        padding: 10px 50px;
+        width: 75%;
+    }
+    #logout-img-container{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 575px){
+    /* homepage */
+    #banner-container {
+        display: block;
+        padding: 5vw;
+    }
+    #banner-img {
+        width: 400px;
+    }
+    #use-container{
+        display: block;
+        padding: 5vw;
+    }
+    #use-list{
+        display: none;
+    }
+    #demo-container{
+        display: block;
+  
+    }
+    #footer-container{
+    display: none;
+    }
+    /* login page */
+    #login-container{
+        display: block;
+    }
+    #login-form{
+        padding: 15px 50px 50px;
+        width: 85%;
+    }
+    #create-account-form{
+        padding: 15px 50px 50px;
+        width: 85%;
+    }
+    /* logout */
+    #logout-container{
+        display: block;
+    }
+    #logout-img-container{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
