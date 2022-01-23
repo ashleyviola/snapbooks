@@ -1,3 +1,4 @@
+// setup routes with express.js and sequelize
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Client, User, Project } = require("../../models");
@@ -5,8 +6,9 @@ const withAuth = require("../../utils/auth");
 
 // get all clients
 router.get("/", (req, res) => {
+    // find all clients
   Client.findAll({})
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbClientData) => res.json(dbClientData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -15,10 +17,14 @@ router.get("/", (req, res) => {
 
 // get one client by id
 router.get("/:id", (req, res) => {
+    // find only a single client based on given id
   Client.findOne({
     where: {
+          // use id supplied as parameter
+
       id: req.params.id,
     },
+    // client information
     attributes: [
       "id",
       "company_name",
@@ -35,6 +41,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Project,
+        // project information
         attributes: [
           "id",
           "project_name",
@@ -46,12 +53,14 @@ router.get("/:id", (req, res) => {
         ],
         include: {
           model: User,
+          // user information, only need username
           attributes: ["username"]
         }
       }
     ]
   })
     .then((dbUserData) => {
+      // if no client found return error message
       if (!dbUserData) {
         res.status(404).json({ message: "No client found with this id" });
         return;
@@ -64,7 +73,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// create client
+// post create client
 router.post("/", withAuth, (req, res) => {
   // expects
   // {
@@ -79,6 +88,7 @@ router.post("/", withAuth, (req, res) => {
   //   "phone_number": "4401239876",
   //   "user_id": 2
   // }
+  // create client using supplied information
   Client.create({
     company_name: req.body.company_name,
     address: req.body.address,

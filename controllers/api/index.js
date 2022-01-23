@@ -1,5 +1,5 @@
+// setup routes with express.js and sequelize
 const router = require('express').Router();
-
 const userRoutes = require('./user-routes.js');
 const projectRoutes = require('./project-routes');
 const clientRoutes = require('./client-routes');
